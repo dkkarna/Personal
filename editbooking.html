@@ -1,0 +1,32 @@
+{% include "header.html" %}
+<form action="/confirmbooking" method="POST">
+    <div class="form-group">
+      <input type="hidden" class="form-control" id="roomname" name="roomname" value="{{name}}">
+    </div>
+    <div class="form-group">
+        <label for="start">Start Date</label>
+        <input type="date" class="form-control" id="start" name="start" onchange="resetMinDate()" value="{{start}}">
+      </div>
+      <div class="form-group">
+        <label for="end">End Date</label>
+        <input type="date" class="form-control" id="end" name="end" value="{{end}}">
+      </div>
+      <input type="hidden" name="index" id="index" value="{{index}}">
+    <input type="submit" class="btn btn-primary" value="Submit">
+</form>
+<script>
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = yyyy+"-"+mm+"-"+dd;
+    console.log(today);
+    document.getElementById("start").setAttribute("min",today);
+
+    function resetMinDate(){
+      var start = document.getElementById("start");
+      var end = document.getElementById("end");
+      end.setAttribute("min",start.value);
+    }
+</script>
+{% include "footer.html" %} 

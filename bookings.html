@@ -1,0 +1,22 @@
+{% include "header.html" %}
+<div class="">
+    <br>
+{% if bookings %}
+   {% for booking in bookings %}
+   <div class="card" style="margin-bottom: 10px;">
+      <h5 class="card-header">{{booking.roomname}}</h5>
+      <div class="card-body">
+         <p class="card-text"><b>Start : </b> {{booking.start}}</p>
+         <p class="card-text"><b>End : </b> {{booking.end}}</p>
+         {% if booking.user == user %}
+         <a href="/editbooking?roomname={{booking.roomname}}&index={{booking.index}}" class="btn btn-primary">Edit Booking</a>
+         <a href="/deletebooking?roomname={{booking.roomname}}&index={{booking.index}}" class="btn btn-danger">Delete Booking</a>
+         {% else %}{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+{% else %}
+<div class="alert alert-primary">No Data to Show</div>
+{% endif %}
+</div>
+{% include "footer.html" %}

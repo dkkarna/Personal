@@ -1,0 +1,9 @@
+{% include "header.html" %}
+<form action="/createroom" method="POST">
+    <div class="form-group">
+      <label for="roomname">Room Name</label>
+      <input type="text" class="form-control" id="roomname" name="roomname" placeholder="Enter room name">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+{% include "footer.html" %} 

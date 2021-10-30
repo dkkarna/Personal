@@ -1,0 +1,15 @@
+{% include "header.html" %}
+<div class="">
+   {% for room in rooms %}
+   <div class="card" style="margin-bottom: 10px;">
+      <h5 class="card-header">{{room.roomname}}</h5>
+      <div class="card-body">
+         <a href="/addbooking?roomname={{room.roomname}}" class="btn btn-primary hiddendata"> Add New Booking </a>
+         <a href="/viewbooking?roomname={{room.roomname}}" class="btn btn-success hiddendata"> View My Bookings </a>
+         <a href="/viewroombooking?roomname={{room.roomname}}" class="btn btn-success hiddendata"> View All Bookings </a>
+         <a href="/deleteroom?roomname={{room.roomname}}" class="btn btn-danger hiddendata"> Delete Room </a>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+{% include "footer.html" %}

@@ -1,4 +1,24 @@
+html{
+    overflow: hidden;
+}
 body {
-  font-family: "helvetica", sans-serif;
-  text-align: center;
+    margin: 0;
+    height: 100vh;
+}
+.max-height{
+    height: 100%;
+}
+.sidebar{
+    background-color: blueviolet;
+}
+.contents{
+    background-color: white;
+    margin: 10%;
+    border-radius: 10px;
+}
+.flex-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
