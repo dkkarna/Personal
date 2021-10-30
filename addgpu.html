@@ -1,0 +1,109 @@
+<html>
+<head>
+  <title>Electro World</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+
+}
+
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+</style>
+
+
+</head>
+<body>
+
+<h1 style="text-align:center">Electro World</h1>
+<div class="topnav">
+    <a href="home.html">Home</a>
+    <a href="addgpu.html">Add GPU</a>
+</div>
+
+<div style="align:cente">
+  <form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Join Today</legend>
+      <div class="form-group">
+        {{ form.name.label(class="from-control-label") }}
+        {{ form.name(class="form-control form-control-lg") }}
+      </div>
+      <div class="form-group">
+        {{ form.manufacturer.label(class="from-control-label") }}
+        {{ form.manufacturer(class="form-control form-control-lg") }}
+      </div>
+      <div class="form-group">
+        {{ form.dateissued.label(class="from-control-label") }}
+        {{ form.dateissued(class="form-control form-control-lg") }}
+      </div>
+      <div class="form-group">
+        {{ form.geometryshader.label(class="from-control-label") }}
+        {{ form.geometryshader(class="form-control form-control-lg") }}
+      </div>
+      <div class="form-group">
+        {{ form.tesselationShader.label(class="from-control-label") }}
+        {{ form.tesselationShader(class="form-control form-control-lg") }}
+      </div>
+      <div class="form-group">
+        {{ form.shaderInt16.label(class="from-control-label") }}
+        {{ form.shaderInt16(class="form-control form-control-lg") }}
+      </div>
+      <div class="form-group">
+        {{ form.sparseBinding.label(class="from-control-label") }}
+        {{ form.sparseBinding(class="form-control form-control-lg") }}
+      </div>
+      <div class="form-group">
+        {{ form.texturecompressionETC2.label(class="from-control-label") }}
+        {{ form.texturecompressionETC2(class="form-control form-control-lg") }}
+      </div>
+      <div class="form-group">
+        {{ form.vertexPipelineStoresAndAtomics.label(class="from-control-label") }}
+        {{ form.vertexPipelineStoresAndAtomics(class="form-control form-control-lg") }}
+      </div>
+    </fieldset>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+    </div>
+  </form>
+</div>
+  <div id="login-info" hidden="true">
+
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+  <script src="{{ url_for('static', filename='app-setup.js') }}"></script>
+
+</body>
+</html>
