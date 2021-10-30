@@ -1,11 +1,9 @@
 {% include "header.html" %}
-{% if status %}
-<div class="alert alert-primary">
-    The operation was successful
+<div class="container">
+    {% if status %}
+    <h1>The operation was successful</h1>
+    {% else %}
+    <h1>The operation failed due to an error</h1>
+    {% endif %}
 </div>
-{% else %}
-<div class="alert alert-danger">
-    The operation failed due to an error
-</div>
-{% endif %}
-{% include "footer.html" %} 
+{% include "footer.html" %}

@@ -1,15 +1,67 @@
 {% include "header.html" %}
-<div class="">
-   {% for room in rooms %}
-   <div class="card" style="margin-bottom: 10px;">
-      <h5 class="card-header">{{room.roomname}}</h5>
-      <div class="card-body">
-         <a href="/addbooking?roomname={{room.roomname}}" class="btn btn-primary hiddendata"> Add New Booking </a>
-         <a href="/viewbooking?roomname={{room.roomname}}" class="btn btn-success hiddendata"> View My Bookings </a>
-         <a href="/viewroombooking?roomname={{room.roomname}}" class="btn btn-success hiddendata"> View All Bookings </a>
-         <a href="/deleteroom?roomname={{room.roomname}}" class="btn btn-danger hiddendata"> Delete Room </a>
+<div class="container">
+   <div class="col">
+      <div class="row">
+         <div class="col">
+            <a href="/addfolder?current={{current}}" class="btn btn-success">Add Directory</a>
+            <a href="/addfile?current={{current}}" class="btn btn-success">Add File</a>
+            <a href="/getcurrentduplicates?current={{current}}" class="btn btn-success">Get Duplicate Files</a>
+            <hr>
+         </div>
+         <form action="/" method="get">
+            <div class="row">
+               <div class="col-md-10">
+                  <div class="form-group">
+                     <input type="text" class="form-control" id="current" name="current" {% if current!="/" %}value="{{current}}"{% else %}{% endif %} required placeholder="Search...">
+                  </div>
+               </div>
+               <div class="col-md-2">
+                  <button type="submit" class="btn btn-outline-primary">Go to</button>
+               </div>
+            </div>
+            <br>
+         </form>
+         <table class="table table-dark table-striped">
+            <thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Operations</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% if folders %}
+               {% for folder in folders %}
+               <tr>
+                  <td><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                     <a href="/?current={{current}}{% if current!="/" %}/{{folder}}{% else %}{{folder}}{% endif %}"> 
+                        {{folder}}
+                     </a>
+                  </td>
+                  <td><a href="/delete_folder?current={{current}}&folder={{folder}}" class="btn btn-outline-danger">Delete</a></td>
+               </tr>
+               {% endfor %}
+               {% else %}{% endif %}
+               {% if files %}
+               {% for file in files %}
+               <tr>
+                  <td><a href="{{file.url}}">{{file.name}}</a></td>
+                  <td><a href="/share_file?current={{current}}&file={{file.name}}" class="btn btn-outline-success">Share</a>
+                  <a href="/delete_file?current={{current}}&file={{file.name}}" class="btn btn-outline-danger">Delete</a></td>
+               </tr>
+               {% endfor %}
+               {% else %}{% endif %}
+            </tbody>
+         </table>
+         {% if shared %}
+         <h3>Shared</h3>
+         {% for share in shared %}
+         <div class="row">
+            <a href="{{share.url}}">{{share.name}}</a>
+         </div>
+         {% endfor %}
+         {% else %}
+         {% endif %}
       </div>
-    </div>
-    {% endfor %}
+   </div>
 </div>
 {% include "footer.html" %}

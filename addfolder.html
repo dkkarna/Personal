@@ -1,0 +1,15 @@
+{% include "header.html" %}
+<div class="container">
+    <form action="/submit_directory" method="POST">
+      <input type="hidden" value="{{current}}" name="current">
+        <div class="form-group">
+          <label for="directory">Add Folder:</label>
+          <input type="text" class="form-control" id="directory" name="directory" placeholder="New Folder name" required>
+        </div>   
+        <br>
+        <div class="form-group">
+          <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </div>
+      </form>
+</div>
+{% include "footer.html" %}

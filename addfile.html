@@ -1,0 +1,12 @@
+{% include "header.html" %}
+<div class="container">
+    <form action="/submit_file" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file">New file:</label>
+          <input type="file" class="form-control" id="file" name="file" required>
+        </div>
+        <input type="hidden" value="{{current}}" name="current">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+</div>
+{% include "footer.html" %}

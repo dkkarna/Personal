@@ -1,0 +1,16 @@
+{% include "header.html" %}
+<div class="container">
+    {% if not files %}
+    <div class="alert alert-danger">The Directory has files in it</div>
+    {% else %}{% endif %}
+    {% if not folders %}
+    <div class="alert alert-danger">The Directory has folders in it</div>
+    {% else %}{% endif %}
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/" class="btn btn-primary">Back to Home</a>
+            <a href="/confirm_delete?current={{current}}&folder={{folder}}">Confirm Delete</a>
+        </div>
+    </div>
+</div>
+{% include "footer.html" %}

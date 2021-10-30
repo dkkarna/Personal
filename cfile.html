@@ -1,0 +1,13 @@
+{% include "header.html" %}
+<div class="container">
+    <div class="alert alert-danger">The file name already exists in the cloud storage, kindly upload again to confirm overwrite</div>
+    <form action="/confirm_submit_file" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file">Overwrite file:</label>
+          <input type="file" class="form-control" id="file" name="file" required>
+        </div>
+        <input type="hidden" value="{{current}}" name="current">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+</div>
+{% include "footer.html" %}
